@@ -1,4 +1,6 @@
-# java-interview-questions
+# Java Intricacies
+
+## What did Java 8 add?.
 
 ## What is the use of declaring a class as final in Java?.
 
