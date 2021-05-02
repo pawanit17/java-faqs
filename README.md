@@ -5,6 +5,12 @@
 ## Time complexity of String concatenation in Java?.
 
 ## How is StringBuffer class implemented in Java?.
+- StringBuffer is backed by a char array.
+- The size of the char array doubles if it overflows.
+- So sometimes append can be slow.
+- When you do an append operation, the content gets persisted onto the char array. If the size of new content is more than the array capacity, a new larger
+  char array shall be used instead.
+- https://stackoverflow.com/questions/8011338/how-is-stringbuffer-implementing-append-function-without-creating-two-objects
 
 ## What are String constant pools in Java?.
 - A part of Java HEAP to store string literals. This serves as a cache.
