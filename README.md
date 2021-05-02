@@ -14,13 +14,69 @@
 ![image](https://user-images.githubusercontent.com/42272776/116812216-2bd28780-ab6b-11eb-9347-4babe59cffbb.png)
 
 ## What is intern method in String
+- Intern method is used to add a String to the String literal pool.
 ![image](https://user-images.githubusercontent.com/42272776/116812298-bdda9000-ab6b-11eb-8b9b-8ccaf2860f39.png)
 
+
+
 ## Why are Strings immutable in Java?.
+- They help in Thread-safe implementations because they are immutable - no race conditions.
+- They make String literal constant pool implementation possible - strings can be cached because of the promise that they cannot changed under the water.
+- Caching hashcode values. HashCode value helps in locating keys in data structures like HashSets, HashMaps. Hash code value of an object is built based on its internal
+  state. So if the internal state does not change, then its hash code too does not change. That is why having immutable as keys to data structure is beneficial.
 
 ## How can you write a hook like Arrays.sort() comparator in Java?.
 
-## toString and hashCode and equals methods on Object
+## Override toString method in Java
+- toString method lets a class override so that it can have its own version of it.
+- By default the *toString* method on Object class returns the *hashcode* information like - *Employee@7a81197d*
+- Ex, this method is overridden at String class.
+```
+public class Experiments 
+{
+	public static void main( String args[] )
+	{
+		Employee e1 = new Employee();
+		e1.id = 1;
+		e1.name = "Pavan";		
+		
+		Employee e2 = new Employee();
+		e2.id = 2;
+		e2.name = "Kumar";
+		
+		System.out.println( e1.toString() );
+		System.out.println( e2.toString() );
+	}
+}
+
+class Employee
+{
+	String name;
+	int id;
+	
+	Employee()
+	{
+		
+	}
+	
+  @override
+	public String toString()
+	{
+		return name + id;		
+	}
+}
+```
+**
+Employee@7a81197d
+Employee@5ca881b5
+
+vs
+
+Pavan1
+Kumar2**
+
+
+## hashCode and equals methods on Object
 
 ## Interfaces vs Abstract Classes
 
