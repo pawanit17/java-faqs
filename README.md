@@ -16,8 +16,17 @@
 ## What is intern method in String
 - Intern method is used to add a String to the String literal pool.
 ![image](https://user-images.githubusercontent.com/42272776/116812298-bdda9000-ab6b-11eb-8b9b-8ccaf2860f39.png)
-
-
+```
+    String str = new String("Axar");
+    String str3 = str.intern();
+    String str1 = "Axar";
+    String str2 = "Axar";
+    System.out.println( (str1 == str2) + " " + (str == str1) + " " + (str3 == str1) );
+```
+- The above code returns *true false true*.
+- Note that the *intern* method does not change state of the String, because String is immutable.
+- Instead, it will place the entry in the String literal constant pool and returns a reference to.
+- This is the same entry that other String literals would point to later.
 
 ## Why are Strings immutable in Java?.
 - They help in Thread-safe implementations because they are immutable - no race conditions.
