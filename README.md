@@ -1,5 +1,7 @@
 # Java Intricacies
 
+- If there is atleast one abstract method in a class, the class has to be marked as abstract.
+- If a class extends an abstract super class, it must implement all the methods that are marked as abstract. Or this class to has to be marked as abstract.
 ## What did Java 8 add?.
 - Lambda expressions
 - Method references
@@ -67,7 +69,73 @@ buf.toString();
 - Caching hashcode values. HashCode value helps in locating keys in data structures like HashSets, HashMaps. Hash code value of an object is built based on its internal
   state. So if the internal state does not change, then its hash code too does not change. That is why having immutable as keys to data structure is beneficial.
 
+## Class modifer visibility in Java
+![image](https://user-images.githubusercontent.com/42272776/116924446-82c48380-ac75-11eb-8182-246b6f28fac6.png)
+
 ## How can you write a hook like Arrays.sort() comparator in Java?.
+
+## Explain the template method design pattern.
+- Abstract class Lucene defines a template method called search.
+- Search has some methods which are defined in this class itself and also some methods which are expected to be overridden in the subclass implementations.
+- These methods are marked as abstract and so the base class itself is an Abstract base class.
+- Subclasses can have methods which override these and provide their own implementations.
+- Key thing to note here is that the reference used is of type of Super class.
+```
+abstract class Lucene
+{
+	public final void search()
+	{
+		buildIndex();
+		treeTraversal();
+		collectFrequencies();
+		displayResults();
+	}
+
+	private void displayResults() {
+		System.out.println("Displaying Search Results");
+	}
+
+	abstract void collectFrequencies();
+	abstract void treeTraversal();
+	abstract void buildIndex();
+}
+
+class Solr extends Lucene
+{
+	@Override
+	void collectFrequencies() {
+		System.out.println("Collecting Inverse Term Frequencies");
+	}
+
+	@Override
+	void treeTraversal() {
+		System.out.println("Applying BFS Traversal");
+	}
+
+	@Override
+	void buildIndex() {
+		System.out.println("Building Index Top Down");
+	}
+}
+
+class ElasticSearch extends Lucene
+{
+	@Override
+	void collectFrequencies() {
+		System.out.println("Collecting Term Frequencies");
+	}
+
+	@Override
+	void treeTraversal() {
+		System.out.println("Applying DFS Traversal");
+	}
+
+	@Override
+	void buildIndex() {
+		System.out.println("Building Index Bottom Up");
+	}
+}
+```
 
 ## Override toString method in Java
 - toString method lets a class override so that it can have its own version of it.
