@@ -1,7 +1,10 @@
 # Java Intricacies
 
 ## What did Java 8 add?.
-
+- Lambda expressions
+- Method references
+- Stream API
+- https://www.tutorialspoint.com/java8/java8_overview.htm#:~:text=JAVA%208%20is%20a%20major,%2C%20new%20streaming%20API%2C%20etc.
 ## What is the use of declaring a class as final in Java?.
 
 ## Time complexity of String concatenation in Java?.
@@ -94,7 +97,18 @@ Kumar2**
 
 
 ## hashCode and equals methods on Object
-
+- hashCode and equals methods are used when we try to add objects to hash based containers like HashMap or HashSet.
+- To see if an object exists as a KEY in the container, it needs to look use these methods.
+- If you have a custom object and two such objects are treated equal based on one of their properties, then you need to override equals obviously.
+  - Ex: User usr1 = new User( "pdittaka", 89999999999 ); and User usr2 = new User( "pdittaka", 9999999999 ) are logically equal but have different memory addresses as
+    they are two different instances.
+  - So you override equals such that if the userid is same, you consider them to be equal.
+  - In such cases, you also need to update hashCode method. The reason is when you added the first usr1 to the container and if you try to add the second usr2, the hash that
+    gets computed should be same to prevent inconsistent results. By default, the hashCode method from Object will not contain processing for your userid attribute and will
+    give two different hashes.
+  - That is why, if you override equals, you should also override hashCode.
+  - The otherway is not true ofcourse. If you override hascode, it means you are changing the hashing algorithm. This is not related to the working of equals method.
+- https://www.tutorialspoint.com/java8/java8_overview.htm#:~:text=JAVA%208%20is%20a%20major,%2C%20new%20streaming%20API%2C%20etc.
 ## Interfaces vs Abstract Classes
 
 ## Lambdas in Java
