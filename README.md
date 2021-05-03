@@ -5,7 +5,20 @@
 - Method references
 - Stream API
 - https://www.tutorialspoint.com/java8/java8_overview.htm#:~:text=JAVA%208%20is%20a%20major,%2C%20new%20streaming%20API%2C%20etc.
+
+## How to make a class as immutable in Java, just like String class?.
+- Dont provide any setter methods
+- Mark all the variables are private and final.
+- To prevent subclasses from overriding any methods, mark the class as final.
+- If there are any reference properties in the class, dont provide setter methods for them.
+- Also provide private constructors with static factory methods.
+- https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html
+
 ## What is the use of declaring a class as final in Java?.
+- Final prevents a class from getting subclasses.
+- If you take String, it is an immutable class. Using final to a class helps achieving this.
+- Typically when designing frameworks, always start with final classes and then expose as needed.
+- This is because if the users subclass and override public methods, how it works may be complex to understand in early stages.
 
 ## Time complexity of String concatenation in Java?.
 
@@ -123,4 +136,7 @@ Kumar2**
 ## Lambdas in Java
 
 ## Threads in Java
+
+## Generics in Java
+
 
