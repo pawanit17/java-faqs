@@ -9,6 +9,15 @@
 
 ## Time complexity of String concatenation in Java?.
 
+## How to use Stringbuffer class
+```
+StringBuffer buf = new StringBuffer();
+buf.append("Pavan");
+buf.getCharAt(index);
+buf.setChartAt(index, 'a' );
+buf.toString();
+```
+
 ## How is StringBuffer class implemented in Java?.
 - StringBuffer is backed by a char array.
 - The size of the char array doubles if it overflows.
