@@ -74,69 +74,6 @@ buf.toString();
 
 ## How can you write a hook like Arrays.sort() comparator in Java?.
 
-## Explain the template method design pattern.
-- Abstract class Lucene defines a template method called search.
-- Search has some methods which are defined in this class itself and also some methods which are expected to be overridden in the subclass implementations.
-- These methods are marked as abstract and so the base class itself is an Abstract base class.
-- Subclasses can have methods which override these and provide their own implementations.
-- Key thing to note here is that the reference used is of type of Super class.
-```
-abstract class Lucene
-{
-	public final void search()
-	{
-		buildIndex();
-		treeTraversal();
-		collectFrequencies();
-		displayResults();
-	}
-
-	private void displayResults() {
-		System.out.println("Displaying Search Results");
-	}
-
-	abstract void collectFrequencies();
-	abstract void treeTraversal();
-	abstract void buildIndex();
-}
-
-class Solr extends Lucene
-{
-	@Override
-	void collectFrequencies() {
-		System.out.println("Collecting Inverse Term Frequencies");
-	}
-
-	@Override
-	void treeTraversal() {
-		System.out.println("Applying BFS Traversal");
-	}
-
-	@Override
-	void buildIndex() {
-		System.out.println("Building Index Top Down");
-	}
-}
-
-class ElasticSearch extends Lucene
-{
-	@Override
-	void collectFrequencies() {
-		System.out.println("Collecting Term Frequencies");
-	}
-
-	@Override
-	void treeTraversal() {
-		System.out.println("Applying DFS Traversal");
-	}
-
-	@Override
-	void buildIndex() {
-		System.out.println("Building Index Bottom Up");
-	}
-}
-```
-
 ## Override toString method in Java
 - toString method lets a class override so that it can have its own version of it.
 - By default the *toString* method on Object class returns the *hashcode* information like - *Employee@7a81197d*
@@ -206,5 +143,70 @@ Kumar2**
 ## Threads in Java
 
 ## Generics in Java
+
+# Design Patterns in Java
+
+## Explain the template method design pattern.
+- Abstract class Lucene defines a template method called search.
+- Search has some methods which are defined in this class itself and also some methods which are expected to be overridden in the subclass implementations.
+- These methods are marked as abstract and so the base class itself is an Abstract base class.
+- Subclasses can have methods which override these and provide their own implementations.
+- Key thing to note here is that the reference used is of type of Super class.
+```
+abstract class Lucene
+{
+	public final void search()
+	{
+		buildIndex();
+		treeTraversal();
+		collectFrequencies();
+		displayResults();
+	}
+
+	private void displayResults() {
+		System.out.println("Displaying Search Results");
+	}
+
+	abstract void collectFrequencies();
+	abstract void treeTraversal();
+	abstract void buildIndex();
+}
+
+class Solr extends Lucene
+{
+	@Override
+	void collectFrequencies() {
+		System.out.println("Collecting Inverse Term Frequencies");
+	}
+
+	@Override
+	void treeTraversal() {
+		System.out.println("Applying BFS Traversal");
+	}
+
+	@Override
+	void buildIndex() {
+		System.out.println("Building Index Top Down");
+	}
+}
+
+class ElasticSearch extends Lucene
+{
+	@Override
+	void collectFrequencies() {
+		System.out.println("Collecting Term Frequencies");
+	}
+
+	@Override
+	void treeTraversal() {
+		System.out.println("Applying DFS Traversal");
+	}
+
+	@Override
+	void buildIndex() {
+		System.out.println("Building Index Bottom Up");
+	}
+}
+```
 
 
