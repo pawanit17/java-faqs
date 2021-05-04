@@ -156,6 +156,7 @@ Kumar2**
 ## Threads in Java
 
 ## Generics in Java
+- https://docs.oracle.com/javase/tutorial/java/generics/why.html
 
 ## HashMap vs HashTable
 - HashTable is thread safe as it is synchronized. HashMap is not.
