@@ -150,6 +150,16 @@ Kumar2**
 - Or you can use Collections.synchronizedMap(), which returns a Map.
 - HashTable does not allow null key. HashMap allows on key with null value.
 
+## Map Usage
+- Initialization
+```Map<String, Integer> teamToWinsMap = new HashMap<String, Integer>();```
+
+- Checking if it has a certain key
+```if( teamToWinsMap.containsKey(team) )```
+
+- Putting and retrieving content to/from a Map
+```teamToWinsMap.put(team, teamToWinsMap.get(team) + 1 )```
+
 ## When are static variables initialized?.
 - Static variables are initialized only once when the class is loaded by the class loader.
 - Static methods with immutable variables are thread safe.
