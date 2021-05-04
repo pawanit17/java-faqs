@@ -22,6 +22,9 @@
 - Typically when designing frameworks, always start with final classes and then expose as needed.
 - This is because if the users subclass and override public methods, how it works may be complex to understand in early stages.
 
+## Class modifer visibility in Java
+![image](https://user-images.githubusercontent.com/42272776/116924446-82c48380-ac75-11eb-8182-246b6f28fac6.png)
+
 ## Time complexity of String concatenation in Java?.
 
 ## How to use Stringbuffer class
@@ -68,9 +71,6 @@ buf.toString();
 - They make String literal constant pool implementation possible - strings can be cached because of the promise that they cannot changed under the water.
 - Caching hashcode values. HashCode value helps in locating keys in data structures like HashSets, HashMaps. Hash code value of an object is built based on its internal
   state. So if the internal state does not change, then its hash code too does not change. That is why having immutable as keys to data structure is beneficial.
-
-## Class modifer visibility in Java
-![image](https://user-images.githubusercontent.com/42272776/116924446-82c48380-ac75-11eb-8182-246b6f28fac6.png)
 
 ## How can you write a hook like Arrays.sort() comparator in Java?.
 
@@ -122,7 +122,6 @@ vs
 Pavan1
 Kumar2**
 
-
 ## hashCode and equals methods on Object
 - hashCode and equals methods are used when we try to add objects to hash based containers like HashMap or HashSet.
 - To see if an object exists as a KEY in the container, it needs to look use these methods.
@@ -143,6 +142,17 @@ Kumar2**
 ## Threads in Java
 
 ## Generics in Java
+
+## HashMap vs HashTable
+- HashTable is thread safe as it is synchronized. HashMap is not.
+- HashTable is consequently slower. Also it is an old data structure.
+- We can synchronize the methods that put and get data from HashMap which typically perform better than HashTable.
+- Or you can use Collections.synchronizedMap(), which returns a Map.
+- HashTable does not allow null key. HashMap allows on key with null value.
+
+## When are static variables initialized?.
+- Static variables are initialized only once when the class is loaded by the class loader.
+- Static methods with immutable variables are thread safe.
 
 # Design Patterns in Java
 
