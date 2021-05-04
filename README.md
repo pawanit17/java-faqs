@@ -146,6 +146,69 @@ Kumar2**
 
 # Design Patterns in Java
 
+## Singleton Design Pattern
+- When a single instance of the class is supposed to exist.
+- Examples are loggers, registries etc.
+- The below implementation is not thread safe. This means that more than one instance may actually get created.
+```class Singleton
+{
+	private static Singleton instance;
+	private Singleton()
+	{
+		System.out.println("Constructing object...");
+	}
+	
+	public static Singleton getInstance()
+	{
+		if( instance = null )
+			instance = new Singleton();
+		System.out.println("Serving object...");
+		return instance;
+	}
+}
+```
+- There are two possibilities here to address this.
+- First approach: Using Synchornized key word to the getInstance method.
+- By adding this key word, we force every theread to wait its turn before it can enter the method.
+- In other words, no two threads can enter this method at the same time.
+```class Singleton
+{
+	private static Singleton instance;
+	private Singleton()
+	{
+		System.out.println("Constructing object...");
+	}
+	
+	public static synchronized Singleton getInstance()
+	{
+		if( instance = null )
+			instance = new Singleton();
+		System.out.println("Serving object...");
+		return instance;
+	}
+}
+```
+- Second approach: Using JVM for managing the object creation.
+- Key thing here is that the object is created in the class definition as a static instance directly.
+- Since static will ensure that the initialization happens only once, this method works out.
+- This is early initialization compared to the lazy initialization described above.
+```
+class Singleton
+{
+	private static Singleton instance = new Singleton();
+	private Singleton()
+	{
+		System.out.println("Constructing object...");
+	}
+	
+	public static Singleton getInstance()
+	{
+		System.out.println("Serving object...");
+		return instance;
+	}	
+}
+```
+
 ## Explain the template method design pattern.
 - Abstract class Lucene defines a template method called search.
 - Search has some methods which are defined in this class itself and also some methods which are expected to be overridden in the subclass implementations.
