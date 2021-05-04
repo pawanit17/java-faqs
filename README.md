@@ -136,7 +136,21 @@ Kumar2**
   - The otherway is not true ofcourse. If you override hascode, it means you are changing the hashing algorithm. This is not related to the working of equals method.
 - https://www.tutorialspoint.com/java8/java8_overview.htm#:~:text=JAVA%208%20is%20a%20major,%2C%20new%20streaming%20API%2C%20etc.
 ## Interfaces vs Abstract Classes
-
+- With Java 8, Intefaces can have method implementations.
+- Examples
+  - Object	- Root class for all the Java Objects
+  - Component	- An Object with Graphic representation
+  - Container	- Component that contains other containers
+  - JContainer	- Abstract Base class for all Swing containers
+  - JTree/JPanel- The Tree Widget/ Panel Widget in Swing
+- JContainer or Automobile are not concrete classes and so are marked as Abstract base classes.
+- JTree and JPanel are two different classes that share some commonalities - they are part of Javax Swing package and offer GUI elements and hence subclassed from JContainer.
+- ![image](https://user-images.githubusercontent.com/42272776/117049408-b49b2000-ad31-11eb-8f48-b245a971decc.png)
+- In addition to offering UI elements, it may be a usecase for a JTree to convert its representation to a file, in which case it can implement Serializable. For this, you can implement Serializable interface. An altogether unrelated class may also implement Serializable interface - DataInputStream.
+- If you want to enforce a behavior on a class in addition to its primary behavior, you use Interface.
+- If you want to enforce a behavior and make it a specialization of another class which does not have concrete meaning, you mark the base class as an abstract base class.
+- Similarly, the interfaces Comparable and Cloneable are implemented by many unrelated classes.  
+  
 ## Lambdas in Java
 
 ## Threads in Java
