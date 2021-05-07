@@ -158,6 +158,21 @@ Kumar2**
 ## Generics in Java
 - https://docs.oracle.com/javase/tutorial/java/generics/why.html
 
+## Collections Framework
+- Collection is an Interface which is the root
+- Implementationsa re List, Set, Map.
+### List
+- ArrayList
+- LinkedList
+### Set
+- HashMap
+- TreeMap
+- LinkedHashMap
+### Map
+- HashMap
+- TreeMap
+
+
 ## HashMap vs HashTable
 - HashTable is thread safe as it is synchronized. HashMap is not.
 - HashTable is consequently slower. Also it is an old data structure.
