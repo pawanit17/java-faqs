@@ -103,7 +103,7 @@ Kumar2**
 - If you want to enforce a behavior and make it a specialization of another class which does not have concrete meaning, you mark the base class as an abstract base class.
 - Similarly, the interfaces Comparable and Cloneable are implemented by many unrelated classes.  
 
-## When are static variables initialized?.
+### When are static variables initialized?.
 - Static variables are initialized only once when the class is loaded by the class loader.
 - Static methods with immutable variables are thread safe.
  
