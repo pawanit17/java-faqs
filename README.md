@@ -8,7 +8,11 @@
 - Stream API
 - https://www.tutorialspoint.com/java8/java8_overview.htm#:~:text=JAVA%208%20is%20a%20major,%2C%20new%20streaming%20API%2C%20etc.
 
-## How to make a class as immutable in Java, just like String class?.
+## Classes and Inheritance
+### Class modifer visibility in Java
+![image](https://user-images.githubusercontent.com/42272776/116924446-82c48380-ac75-11eb-8182-246b6f28fac6.png)
+
+### How to make a class as immutable in Java, just like String class?.
 - Dont provide any setter methods
 - Mark all the variables are private and final.
 - To prevent subclasses from overriding any methods, mark the class as final.
@@ -16,65 +20,13 @@
 - Also provide private constructors with static factory methods.
 - https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html
 
-## What is the use of declaring a class as final in Java?.
+### What is the use of declaring a class as final in Java?.
 - Final prevents a class from getting subclasses.
 - If you take String, it is an immutable class. Using final to a class helps achieving this.
 - Typically when designing frameworks, always start with final classes and then expose as needed.
 - This is because if the users subclass and override public methods, how it works may be complex to understand in early stages.
 
-## Class modifer visibility in Java
-![image](https://user-images.githubusercontent.com/42272776/116924446-82c48380-ac75-11eb-8182-246b6f28fac6.png)
-
-## Time complexity of String concatenation in Java?.
-
-## How to use Stringbuffer class
-```
-StringBuffer buf = new StringBuffer();
-buf.append("Pavan");
-buf.getCharAt(index);
-buf.setChartAt(index, 'a' );
-buf.toString();
-```
-
-## How is StringBuffer class implemented in Java?.
-- StringBuffer is backed by a char array.
-- The size of the char array doubles if it overflows.
-- So sometimes append can be slow.
-- When you do an append operation, the content gets persisted onto the char array. If the size of new content is more than the array capacity, a new larger
-  char array shall be used instead.
-- https://stackoverflow.com/questions/8011338/how-is-stringbuffer-implementing-append-function-without-creating-two-objects
-
-## What are String constant pools in Java?.
-- A part of Java HEAP to store string literals. This serves as a cache.
-- This reduces the number of strings that are created by the JVM.
-![image](https://user-images.githubusercontent.com/42272776/116812197-165d5d80-ab6b-11eb-9a1d-a2c25ebcab0f.png)
-- Note that Strings created with *new* dont get cached here.
-![image](https://user-images.githubusercontent.com/42272776/116812216-2bd28780-ab6b-11eb-9347-4babe59cffbb.png)
-
-## What is intern method in String
-- Intern method is used to add a String to the String literal pool.
-![image](https://user-images.githubusercontent.com/42272776/116812298-bdda9000-ab6b-11eb-8b9b-8ccaf2860f39.png)
-```
-    String str = new String("Axar");
-    String str3 = str.intern();
-    String str1 = "Axar";
-    String str2 = "Axar";
-    System.out.println( (str1 == str2) + " " + (str == str1) + " " + (str3 == str1) );
-```
-- The above code returns *true false true*.
-- Note that the *intern* method does not change state of the String, because String is immutable.
-- Instead, it will place the entry in the String literal constant pool and returns a reference to.
-- This is the same entry that other String literals would point to later.
-
-## Why are Strings immutable in Java?.
-- They help in Thread-safe implementations because they are immutable - no race conditions.
-- They make String literal constant pool implementation possible - strings can be cached because of the promise that they cannot changed under the water.
-- Caching hashcode values. HashCode value helps in locating keys in data structures like HashSets, HashMaps. Hash code value of an object is built based on its internal
-  state. So if the internal state does not change, then its hash code too does not change. That is why having immutable as keys to data structure is beneficial.
-
-## How can you write a hook like Arrays.sort() comparator in Java?.
-
-## Override toString method in Java
+### Override toString method in Java
 - toString method lets a class override so that it can have its own version of it.
 - By default the *toString* method on Object class returns the *hashcode* information like - *Employee@7a81197d*
 - Ex, this method is overridden at String class.
@@ -122,7 +74,7 @@ vs
 Pavan1
 Kumar2**
 
-## hashCode and equals methods on Object
+### hashCode and equals methods on Object
 - hashCode and equals methods are used when we try to add objects to hash based containers like HashMap or HashSet.
 - To see if an object exists as a KEY in the container, it needs to look use these methods.
 - If you have a custom object and two such objects are treated equal based on one of their properties, then you need to override equals obviously.
@@ -135,7 +87,7 @@ Kumar2**
   - That is why, if you override equals, you should also override hashCode.
   - The otherway is not true ofcourse. If you override hascode, it means you are changing the hashing algorithm. This is not related to the working of equals method.
 - https://www.tutorialspoint.com/java8/java8_overview.htm#:~:text=JAVA%208%20is%20a%20major,%2C%20new%20streaming%20API%2C%20etc.
-## Interfaces vs Abstract Classes
+### Interfaces vs Abstract Classes
 - With Java 8, Intefaces can have method implementations.
 - Examples
   - Object	- Root class for all the Java Objects
@@ -150,12 +102,65 @@ Kumar2**
 - If you want to enforce a behavior on a class in addition to its primary behavior, you use Interface.
 - If you want to enforce a behavior and make it a specialization of another class which does not have concrete meaning, you mark the base class as an abstract base class.
 - Similarly, the interfaces Comparable and Cloneable are implemented by many unrelated classes.  
+
+## When are static variables initialized?.
+- Static variables are initialized only once when the class is loaded by the class loader.
+- Static methods with immutable variables are thread safe.
+ 
+## String Class
+### Time complexity of String concatenation in Java?.
+
+### How to use Stringbuffer class
+```
+StringBuffer buf = new StringBuffer();
+buf.append("Pavan");
+buf.getCharAt(index);
+buf.setChartAt(index, 'a' );
+buf.toString();
+```
+### How is StringBuffer class implemented in Java?.
+- StringBuffer is backed by a char array.
+- The size of the char array doubles if it overflows.
+- So sometimes append can be slow.
+- When you do an append operation, the content gets persisted onto the char array. If the size of new content is more than the array capacity, a new larger
+  char array shall be used instead.
+- https://stackoverflow.com/questions/8011338/how-is-stringbuffer-implementing-append-function-without-creating-two-objects
+
+### What are String constant pools in Java?.
+- A part of Java HEAP to store string literals. This serves as a cache.
+- This reduces the number of strings that are created by the JVM.
+![image](https://user-images.githubusercontent.com/42272776/116812197-165d5d80-ab6b-11eb-9a1d-a2c25ebcab0f.png)
+- Note that Strings created with *new* dont get cached here.
+![image](https://user-images.githubusercontent.com/42272776/116812216-2bd28780-ab6b-11eb-9347-4babe59cffbb.png)
+
+### What is intern method in String
+- Intern method is used to add a String to the String literal pool.
+![image](https://user-images.githubusercontent.com/42272776/116812298-bdda9000-ab6b-11eb-8b9b-8ccaf2860f39.png)
+```
+    String str = new String("Axar");
+    String str3 = str.intern();
+    String str1 = "Axar";
+    String str2 = "Axar";
+    System.out.println( (str1 == str2) + " " + (str == str1) + " " + (str3 == str1) );
+```
+- The above code returns *true false true*.
+- Note that the *intern* method does not change state of the String, because String is immutable.
+- Instead, it will place the entry in the String literal constant pool and returns a reference to.
+- This is the same entry that other String literals would point to later.
+
+### Why are Strings immutable in Java?.
+- They help in Thread-safe implementations because they are immutable - no race conditions.
+- They make String literal constant pool implementation possible - strings can be cached because of the promise that they cannot changed under the water.
+- Caching hashcode values. HashCode value helps in locating keys in data structures like HashSets, HashMaps. Hash code value of an object is built based on its internal
+  state. So if the internal state does not change, then its hash code too does not change. That is why having immutable as keys to data structure is beneficial.
+
+### How can you write a hook like Arrays.sort() comparator in Java?.
   
-## Lambdas in Java
+### Lambdas in Java
 
-## Threads in Java
+### Threads in Java
 
-## Generics in Java
+### Generics in Java
 - https://docs.oracle.com/javase/tutorial/java/generics/why.html
 
 ## Collections Framework
@@ -170,17 +175,8 @@ Kumar2**
 - LinkedHashMap
 ### Map
 - HashMap
-- TreeMap
 
-
-## HashMap vs HashTable
-- HashTable is thread safe as it is synchronized. HashMap is not.
-- HashTable is consequently slower. Also it is an old data structure.
-- We can synchronize the methods that put and get data from HashMap which typically perform better than HashTable.
-- Or you can use Collections.synchronizedMap(), which returns a Map.
-- HashTable does not allow null key. HashMap allows on key with null value.
-
-## Map Usage
+#### Map Usage
 - Initialization
 ```Map<String, Integer> teamToWinsMap = new HashMap<String, Integer>();```
 
@@ -190,9 +186,14 @@ Kumar2**
 - Putting and retrieving content to/from a Map
 ```teamToWinsMap.put(team, teamToWinsMap.get(team) + 1 )```
 
-## When are static variables initialized?.
-- Static variables are initialized only once when the class is loaded by the class loader.
-- Static methods with immutable variables are thread safe.
+#### HashMap vs HashTable
+- HashTable is thread safe as it is synchronized. HashMap is not.
+- HashTable is consequently slower. Also it is an old data structure.
+- We can synchronize the methods that put and get data from HashMap which typically perform better than HashTable.
+- Or you can use Collections.synchronizedMap(), which returns a Map.
+- HashTable does not allow null key. HashMap allows on key with null value.
+
+- TreeMap
 
 # Design Patterns in Java
 
