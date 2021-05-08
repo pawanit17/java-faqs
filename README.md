@@ -168,6 +168,13 @@ buf.toString();
 - Implementationsa re List, Set, Map.
 ### List
 - ArrayList
+#### ArrayList vs Vector
+- Both are built with an array as the underlying data structure
+- Differences
+  - If the size limit is reached, then the arraylist expands the size by 50% where as Vector dubles the size (100%).
+  - Vector is Synchronized and so is slow.
+  - Collections.synchronizedList is normally used to avoid any accidental unsynchronized access.
+
 - LinkedList
 ### Set
 - HashMap
