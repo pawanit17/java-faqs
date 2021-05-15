@@ -174,7 +174,6 @@ buf.toString();
   - If the size limit is reached, then the arraylist expands the size by 50% where as Vector dubles the size (100%).
   - Vector is Synchronized and so is slow.
   - Collections.synchronizedList is normally used to avoid any accidental unsynchronized access.
-
 - LinkedList
 ### Set
 - HashMap
@@ -182,6 +181,33 @@ buf.toString();
 - LinkedHashMap
 ### Map
 - HashMap
+### Conversions between Lists and Arrays
+```
+	// Array to List
+	// Convert an array of integers to a List of array of integers.
+	// Note that List<int> is not valid in Java. So the best alternative
+	// is List<Integer>.
+	// This returns a modifiable collection.
+	int arr[] = { 1, 2, 3, 4, 5 };
+	List<Integer> arrList = Arrays.stream(arr).boxed().collect(Collectors.toList());
+
+	// To get an Immutable collection
+	List<Integer> immutableArrList = Arrays.stream(arr).boxed().collect(Collectors.toUnmodifiableList());
+
+	// List to Array
+	List<Integer> numberList = new ArrayList<Integer>();
+	numberList.add(1);
+	numberList.add(2);
+	numberList.add(3);
+	numberList.add(4);
+	numberList.add(5);
+	Integer[] numberArray = numberList.toArray( new Integer[0] );
+
+	// Convert a 2D array to a List of int[].
+	int arr2D[][] = {{1,2}, {3,4}, {5,6}};
+	List<int[]> arr2DList = Arrays.asList(arr2D);
+```
+
 
 #### Map Usage
 - Initialization
